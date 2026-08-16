@@ -1,0 +1,93 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Privacy & Terms — FinalForm";
+const description = "FinalForm privacy policy and terms of service.";
+---
+
+<BaseLayout title={title} description={description} path="/legal/">
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">Legal</p>
+      <h1>Privacy & Terms</h1>
+      <p class="hero-sub">Last updated: August 2026</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="legal-nav">
+        <a href="#privacy">Privacy Policy</a>
+        <a href="#terms">Terms of Service</a>
+      </div>
+
+      <div class="prose">
+        <h2 id="privacy">Privacy Policy</h2>
+        <p>
+          <strong>What we collect.</strong> When you sign up for early access, we
+          ask for your email address. That's it. We don't collect your browsing,
+          we don't use analytics cookies, and we don't sell or share your
+          information with third parties.
+        </p>
+        <p>
+          <strong>Why we collect it.</strong> We use your email to notify you when
+          the free tools are ready to access. You can ask us to remove it at any
+          time.
+        </p>
+        <p>
+          <strong>Where it lives.</strong> In this first version, signing up is
+          purely on your device — we'll be transparent about where and how we
+          store emails once real signups are enabled.
+        </p>
+        <p>
+          <strong>Your data is yours.</strong> Our free tools are designed to be
+          local-first: your wellness data stays on your device and is never
+          uploaded. Your health data isn't a product.
+        </p>
+
+        <h2 id="terms">Terms of Service</h2>
+        <p>
+          <strong>Use of the site.</strong> By using getfinalform.com you agree to
+          these terms. The site is provided free of charge for personal use.
+        </p>
+        <p>
+          <strong>Early access.</strong> Signing up places you on our access list
+          for the free wellness tools. Access is provided on a best-effort basis
+          and may change as the tools evolve.
+        </p>
+        <p>
+          <strong>Products.</strong> FinalForm may offer products and services
+          that personalize your health journey. Those are separate offerings
+          with their own terms.
+        </p>
+        <p>
+          <strong>No warranty.</strong> The site and any tools are provided "as
+          is" without warranties of any kind. Wellness information is not medical
+          advice.
+        </p>
+        <p>
+          <strong>Contact.</strong> Questions about these terms or your data may
+          be directed to the FinalForm team.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .legal-nav {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    font-size: 0.9375rem;
+  }
+  .legal-nav a {
+    color: var(--ink);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .legal-nav a:hover {
+    color: var(--primary);
+  }
+</style>

@@ -1,25 +1,31 @@
 :root {
-  --primary: #ff385c;
-  --primary-active: #e00b41;
-  --primary-disabled: #ffd1da;
-  --canvas: #ffffff;
-  --surface-soft: #f7f7f7;
-  --surface-strong: #f2f2f2;
-  --ink: #222222;
-  --body: #3f3f3f;
-  --muted: #6a6a6a;
-  --muted-soft: #929292;
-  --hairline: #dddddd;
-  --hairline-soft: #ebebeb;
+  --primary: #000000;
   --on-primary: #ffffff;
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-xl: 32px;
-  --maxw: 1280px;
-  --font: "Inter", Circular, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, "Helvetica Neue", Arial, sans-serif;
-  --shadow: rgba(0, 0, 0, 0.02) 0 0 0 1px, rgba(0, 0, 0, 0.04) 0 2px 6px 0,
-    rgba(0, 0, 0, 0.1) 0 4px 8px 0;
+  --canvas: #ffffff;
+  --surface-soft: #f8f9f9;
+  --surface-off: #f3f4f4;
+  --surface-sand: #fefff2;
+  --surface-dark: #000000;
+  --on-dark: #ffffff;
+  --ink: #000000;
+  --muted: rgba(0, 0, 0, 0.55);
+  --muted-soft: rgba(0, 0, 0, 0.38);
+  --hairline: rgba(0, 0, 0, 0.08);
+  --hairline-medium: rgba(0, 0, 0, 0.2);
+  --focus: rgba(0, 0, 0, 0.5);
+  --accent-taupe: #baafa4;
+  --accent-yellow: #f7e37e;
+  --accent-lime: #dcdb7d;
+  --accent-moss: #79b884;
+  --accent-steel: #5c6e7c;
+  --accent-purple: #897f98;
+  --maxw: 1600px;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-display: "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --radius-xs: 5px;
+  --radius-sm: 6px;
+  --radius-pill: 16px;
+  --radius-circle: 100px;
 }
 
 * {
@@ -32,12 +38,13 @@ html {
 
 body {
   margin: 0;
-  font-family: var(--font);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 1.8;
+  letter-spacing: 0.06rem;
   color: var(--ink);
   background: var(--canvas);
   -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  line-height: 1.5;
 }
 
 a {
@@ -50,6 +57,7 @@ h2,
 h3 {
   margin: 0;
   color: var(--ink);
+  font-family: var(--font-display);
 }
 
 p {
@@ -60,15 +68,15 @@ p {
   width: 100%;
   max-width: var(--maxw);
   margin-inline: auto;
-  padding-inline: 1.5rem;
+  padding-inline: 2rem;
 }
 
-/* Header */
+/* Header — white bar, hairline bottom */
 .header {
   position: sticky;
   top: 0;
   z-index: 50;
-  height: 80px;
+  height: 64px;
   background: var(--canvas);
   border-bottom: 1px solid var(--hairline);
 }
@@ -85,51 +93,45 @@ p {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-weight: 700;
-  letter-spacing: -0.01em;
+  font-family: var(--font-display);
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
   color: var(--ink);
-}
-
-.brand-mark {
-  width: 28px;
-  height: 28px;
-  border-radius: 6px;
-  background: var(--primary);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-size: 14px;
-  font-weight: 700;
 }
 
 .nav {
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  font-size: 1rem;
-  font-weight: 600;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
   color: var(--ink);
 }
 
 .nav a:hover {
-  color: var(--primary);
+  opacity: 0.55;
 }
 
-/* Buttons — Airbnb: 8px radius, weight 500, 48px */
+/* Buttons — Satisfy: 6px radius, uppercase, wide tracking */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.375rem;
   border-radius: var(--radius-sm);
-  padding: 0.75rem 1.5rem;
-  font-family: inherit;
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 1.25;
+  padding: 0.75rem 2rem;
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1;
   cursor: pointer;
-  transition: background 0.15s ease;
+  transition: opacity 0.15s ease, background 0.15s ease;
   white-space: nowrap;
   border: 1px solid transparent;
 }
@@ -140,7 +142,7 @@ p {
 }
 
 .btn-primary:hover {
-  background: var(--primary-active);
+  opacity: 0.75;
 }
 
 .btn-secondary {
@@ -155,11 +157,12 @@ p {
 
 .btn-lg {
   height: 48px;
+  padding-inline: 2rem;
 }
 
 /* Sections */
 .section {
-  padding: 4rem 0;
+  padding: 4.5rem 0;
 }
 
 .section-tight {
@@ -167,55 +170,111 @@ p {
 }
 
 .eyebrow {
-  color: var(--primary);
+  color: var(--muted);
+  font-family: var(--font-mono);
   font-size: 0.8125rem;
-  font-weight: 600;
+  font-weight: 400;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
 }
 
 /* Hero */
 .hero {
   text-align: center;
-  padding: 4.5rem 0 3rem;
+  padding: 4.5rem 0 3.5rem;
 }
 
 .hero h1 {
-  max-width: 42rem;
+  max-width: 44rem;
   margin: 1.25rem auto 0;
-  font-size: clamp(1.75rem, 4vw, 2rem);
-  font-weight: 700;
-  line-height: 1.25;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
 }
 
 .hero-sub {
   max-width: 34rem;
   margin: 1rem auto 0;
-  font-size: 1rem;
+  font-size: 0.9375rem;
   color: var(--muted);
 }
 
-.hero-actions {
-  margin-top: 2rem;
+/* Signup */
+.signup {
+  margin: 2.5rem auto 0;
+  max-width: 34rem;
+  scroll-margin-top: 5rem;
+}
+
+.signup-label {
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.8125rem;
+  margin-bottom: 0.75rem;
+}
+
+.signup-form {
   display: flex;
   gap: 0.75rem;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-/* Cards — Airbnb: 14px radius, hairline, no shadow at rest */
+.email-input {
+  width: 100%;
+  max-width: 22rem;
+  height: 48px;
+  padding: 0 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.9375rem;
+  color: var(--ink);
+  background: var(--canvas);
+  border: 1px solid rgba(0, 0, 0, 0.55);
+  border-radius: var(--radius-xs);
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.email-input:focus {
+  border: 2px solid var(--ink);
+  padding: 0 calc(1rem - 1px);
+}
+
+.email-input::placeholder {
+  color: var(--muted-soft);
+}
+
+.micro-trust {
+  margin-top: 0.75rem;
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.signup-success {
+  margin-top: 0.75rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+}
+
+/* Cards — hard edges, hairline */
 .card {
   background: var(--canvas);
   border: 1px solid var(--hairline);
-  border-radius: var(--radius-md);
+  border-radius: 0;
   padding: 1.5rem;
-}
-
-.card:hover {
-  box-shadow: var(--shadow);
 }
 
 .card-soft {
   background: var(--surface-soft);
-  border-color: transparent;
 }
 
 .grid {
@@ -241,97 +300,210 @@ p {
 /* Feature tile */
 .feature-tile {
   border: 1px solid var(--hairline);
-  border-radius: var(--radius-md);
+  border-radius: 0;
   padding: 1.75rem;
   background: var(--canvas);
   color: var(--ink);
   display: flex;
   flex-direction: column;
-  transition: box-shadow 0.15s ease;
-}
-
-.feature-tile:hover {
-  box-shadow: var(--shadow);
 }
 
 .feature-tile h3 {
   font-size: 1.25rem;
-  font-weight: 700;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
   margin-top: 0.75rem;
 }
 
 .feature-tile p {
   margin-top: 0.5rem;
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   color: var(--muted);
-  line-height: 1.5;
+  line-height: 1.8;
 }
 
 .feature-tile .tile-cta {
   margin-top: 1.25rem;
-  font-weight: 600;
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.8125rem;
   color: var(--ink);
-}
-
-/* tone-* classes now render as Rausch eyebrow accents only (no gradients) */
-.tone-purple .eyebrow,
-.tone-blue .eyebrow,
-.tone-slate .eyebrow,
-.tone-teal .eyebrow {
-  color: var(--primary);
 }
 
 /* Section headings */
 .section-head {
-  max-width: 40rem;
   margin-bottom: 2rem;
 }
 
 .section-head h2 {
-  font-size: clamp(1.5rem, 3vw, 1.875rem);
-  font-weight: 700;
+  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
   margin-top: 0.5rem;
-  line-height: 1.25;
+  line-height: 1.1;
 }
 
 .section-head p {
   margin-top: 0.75rem;
   color: var(--muted);
-  font-size: 1rem;
+  font-size: 0.9375rem;
 }
 
-/* CTA band — light surface, Rausch button */
+/* Comparison table */
+.compare-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.compare {
+  width: 100%;
+  min-width: 620px;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+
+.compare th,
+.compare td {
+  text-align: left;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.compare thead th {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 0.9375rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  border-bottom: 2px solid var(--ink);
+}
+
+.compare thead th:first-child {
+  font-weight: 400;
+  color: var(--muted);
+  width: 20%;
+}
+
+.compare tbody td:first-child {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.compare tbody td:nth-child(2) {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.compare tbody td:nth-child(3) {
+  color: var(--muted);
+}
+
+/* CTA band — black band, inverse button */
 .cta-band {
-  background: var(--surface-soft);
+  background: var(--surface-dark);
+  color: var(--on-dark);
   text-align: center;
-  padding: 4rem 0;
+  padding: 4.5rem 0;
 }
 
 .cta-band h2 {
-  font-size: clamp(1.5rem, 3vw, 1.875rem);
-  font-weight: 700;
+  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+  color: var(--on-dark);
 }
 
 .cta-band p {
   margin: 0.75rem auto 0;
-  max-width: 30rem;
-  color: var(--muted);
+  max-width: 32rem;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .cta-band .btn {
   margin-top: 1.75rem;
 }
 
-/* Footer — Airbnb: white, link columns, muted legal band */
-.footer {
-  padding: 2.5rem 0;
+.cta-band .btn-primary {
   background: var(--canvas);
+  color: var(--ink);
+}
+
+.cta-band .btn-primary:hover {
+  background: var(--surface-off);
+  opacity: 1;
+}
+
+.cta-band .eyebrow {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* FAQ accordion */
+.faq {
+  max-width: none;
+}
+
+.faq-item {
+  border: 1px solid var(--hairline);
+  border-radius: 0;
+  padding: 0 1.25rem;
+  margin-bottom: 0.75rem;
+  background: var(--canvas);
+}
+
+.faq-item summary {
+  cursor: pointer;
+  padding: 1.125rem 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.9375rem;
+  color: var(--ink);
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: "+";
+  font-size: 1.25rem;
+  color: var(--muted-soft);
+}
+
+.faq-item[open] summary::after {
+  content: "−";
+}
+
+.faq-item p {
+  padding: 0 0 1.125rem;
+  margin: 0;
+  font-size: 0.875rem;
   color: var(--muted);
+}
+
+/* Footer — black band */
+.footer {
+  padding: 3rem 0 2.5rem;
+  background: var(--surface-dark);
+  color: rgba(255, 255, 255, 0.7);
   font-size: 0.875rem;
 }
 
 .footer-inner {
-  border-top: 1px solid var(--hairline);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
   padding-top: 1.5rem;
   display: flex;
   flex-wrap: wrap;
@@ -347,26 +519,30 @@ p {
 }
 
 .footer-links a:hover {
-  color: var(--ink);
+  color: var(--on-dark);
 }
 
 .footer strong {
-  color: var(--ink);
+  color: var(--on-dark);
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
 .footer-legal {
   margin-top: 1.5rem;
-  border-top: 1px solid var(--hairline-soft);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
   padding-top: 1rem;
   font-size: 0.8125rem;
-  color: var(--muted-soft);
+  color: rgba(255, 255, 255, 0.6);
 }
 
-/* Prose (legal/about pages) */
+/* Prose */
 .prose {
-  max-width: 42rem;
-  font-size: 0.95rem;
-  color: var(--body);
+  max-width: 46rem;
+  font-size: 0.9375rem;
+  color: var(--ink);
 }
 
 .prose p {
@@ -375,12 +551,69 @@ p {
 
 .prose h2 {
   margin-top: 2rem;
-  font-size: 1.4rem;
+  font-size: 1.25rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.prose strong {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.prose-wide {
+  max-width: none;
 }
 
 .page-title {
-  font-size: clamp(1.75rem, 4vw, 2rem);
-  font-weight: 700;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+}
+
+/* About page — full-width manifesto + columns */
+.about-manifesto {
+  max-width: 60rem;
+}
+
+.about-manifesto h2 {
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+}
+
+.about-manifesto p {
+  margin-top: 1rem;
+  max-width: 40rem;
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+
+.about-columns {
+  margin-top: 3rem;
+}
+
+.about-col {
+  border-top: 2px solid var(--ink);
+  padding-top: 1.25rem;
+}
+
+.about-col .eyebrow {
+  color: var(--ink);
+}
+
+.about-col p:not(.eyebrow) {
+  margin-top: 0.75rem;
+  color: var(--muted);
+  font-size: 0.9375rem;
 }
 
 /* Utilities */
@@ -397,10 +630,17 @@ p {
 }
 
 @media (max-width: 640px) {
+  .container {
+    padding-inline: 1rem;
+  }
   .nav {
     gap: 1rem;
   }
   .nav a:not(.btn) {
     display: none;
+  }
+  .compare th,
+  .compare td {
+    padding: 0.75rem 0.875rem;
   }
 }

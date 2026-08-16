@@ -1,102 +1,217 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const title = "FinalForm — consumer tools that are free because they're cheap to run";
+const title = "Final Form — grounded health tools, no monthly subscriptions";
 const description =
-  "FinalForm builds local-first consumer apps: free, private, and cost-effective. Start with MyLittleGymBro, a free AI macro tracker.";
+  "Final Form delivers 80% of what high-end health apps do — simple, free, and straight to your inbox. Scan food, log by the gram, and build the foundational habits first.";
 ---
 
 <BaseLayout title={title} description={description} path="/">
+  <!-- 1. Above the fold -->
   <section class="hero">
     <div class="container">
-      <p class="eyebrow">Consumer tools. Built differently.</p>
-      <h1>Free software, made possible by cheap-to-run architecture.</h1>
+      <p class="eyebrow">Grounded Health Tools • No Monthly Subscriptions</p>
+      <h1>Take control of your longevity — without the paywalls.</h1>
       <p class="hero-sub">
-        FinalForm builds local-first products that keep your data on your device
-        and our hosting costs near zero — so the software can stay free.
+        Final Form delivers 80% of what high-end health apps do — simple, free,
+        and straight to your inbox. Build the foundational habits first, and
+        invest in premium tools only when you actually need them.
       </p>
-      <div class="hero-actions">
-        <a href="/products/mylittlegymbro/" class="btn btn-primary btn-lg">Try MyLittleGymBro</a>
-        <a href="/products/" class="btn btn-secondary btn-lg">Browse products</a>
+
+      <div class="signup" id="signup">
+        <form id="signup-form" class="signup-form" novalidate>
+          <input
+            id="signup-email"
+            class="email-input"
+            type="email"
+            name="email"
+            placeholder="Email address"
+            autocomplete="email"
+            required
+          />
+          <button type="submit" class="btn btn-primary btn-lg">
+            Unlock Free Tool Access
+          </button>
+        </form>
+        <p class="micro-trust">100% free. No credit cards. No predatory subscriptions.</p>
+        <p id="signup-success" class="signup-success" hidden>
+          You're in. We'll email you a link to access the free tools.
+        </p>
       </div>
     </div>
   </section>
 
-  <section class="section-tight">
+  <!-- 2. Origin story & anti-villain manifesto -->
+  <section class="section">
     <div class="container">
       <div class="section-head">
-        <p class="eyebrow">Products</p>
-        <h2>Start with what's here today.</h2>
+        <p class="eyebrow">The story</p>
+        <h2>Why we built Final Form.</h2>
+      </div>
+      <div class="prose prose-wide">
         <p>
-          A growing set of consumer tools, each following the same principles:
-          local-first, private, and cost-effective to run.
+          <strong>The frustration.</strong> We got tired of paying $20+ a month
+          just to understand basic body metrics — calories, macros, sleep,
+          habits. That isn't premium. It's a toll on information that should be
+          yours.
+        </p>
+        <p>
+          <strong>The mission.</strong> Your health journey starts with healthy
+          habits, not expensive apps. If you don't yet know what works for you,
+          the last thing you need is another subscription.
+        </p>
+        <p>
+          <strong>The vision.</strong> Democratizing health tech — transparent,
+          comparative, and grounded. Everyone should be able to make informed
+          choices about their longevity, without opaque pricing.
+        </p>
+        <p>
+          What's the point of consumer health if you don't know all your
+          options?
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. The free interactive tool (gateway) -->
+  <section class="section" style="padding-top: 0">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">The free tool</p>
+        <h2>Know your numbers before you spend a dime.</h2>
+        <p>
+          Fast inputs, clear metrics, actionable habits — no spreadsheet, no
+          premium tier.
         </p>
       </div>
       <div class="grid grid-2">
-        <a href="/products/mylittlegymbro/" class="feature-tile tone-purple">
-          <p class="eyebrow">Macro tracking</p>
-          <h3>MyLittleGymBro</h3>
-          <p>
-            A free, private, AI-assisted macro tracker. Scan barcodes, weigh your
-            home-cooked meals, and ask AI about anything you eat.
-          </p>
-          <p class="tile-cta">Open the product →</p>
-        </a>
-        <div class="feature-tile tone-slate">
-          <p class="eyebrow">Coming soon</p>
-          <h3>More in the works</h3>
-          <p>
-            The same playbook applied to other everyday consumer problems —
-            free to use because it's cheap to run.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section-tight">
-    <div class="container">
-      <div class="section-head">
-        <p class="eyebrow">Why local-first</p>
-        <h2>Cheap to run. Private by default.</h2>
-        <p>
-          No accounts, no cloud databases, no servers to scale. Data lives on
-          your device, and infrastructure costs drop to pennies a month.
-        </p>
-      </div>
-      <div class="grid grid-3">
         <div class="card">
-          <h3 style="font-size: 1.25rem">Private</h3>
+          <h3 style="font-size: 1.25rem">Scan any food — get instant macros</h3>
           <p class="muted mt-2">
-            Your data stays on your device. No ads, no tracking, no profile to
-            sell.
+            Pull calories, protein, carbs, and fat from a free, open database.
           </p>
         </div>
         <div class="card card-soft">
-          <h3 style="font-size: 1.25rem">Free</h3>
+          <h3 style="font-size: 1.25rem">Log by the gram — see what you actually ate</h3>
           <p class="muted mt-2">
-            Deliberate trade-offs keep operating cost near zero, so the products
-            can be offered free.
+            Per-gram accuracy, not label guesswork.
+          </p>
+        </div>
+        <div class="card card-soft">
+          <h3 style="font-size: 1.25rem">Weigh your meals — get per-gram nutrition</h3>
+          <p class="muted mt-2">
+            Home-cooked food included. Weigh the ingredients, get the dish's real macros.
           </p>
         </div>
         <div class="card">
-          <h3 style="font-size: 1.25rem">Yours</h3>
+          <h3 style="font-size: 1.25rem">Ask AI about any food — log it in one tap</h3>
           <p class="muted mt-2">
-            Export everything anytime. Nothing is locked into a proprietary
-            cloud.
+            Restaurant order or mystery snack, the tool finds it and logs it for you.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="cta-band">
+  <!-- 4. Transparent comparison / value anchor -->
+  <section class="section" style="padding-top: 0">
     <div class="container">
-      <h2>Free. Because no one should have to pay to remember the food they ate.</h2>
-      <p>
-        Start tracking macros for free — no account, no subscription, no ads.
-      </p>
-      <a href="/products/mylittlegymbro/" class="btn btn-primary btn-lg">Open MyLittleGymBro</a>
+      <div class="section-head">
+        <p class="eyebrow">The comparison</p>
+        <h2>Final Form vs. traditional health apps.</h2>
+        <p>Transparent, comparative reporting — so you can actually choose.</p>
+      </div>
+      <div class="compare-wrap">
+        <table class="compare">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Final Form</th>
+              <th>Traditional apps</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Cost</td>
+              <td>Free core tools</td>
+              <td>$15–$30 / month</td>
+            </tr>
+            <tr>
+              <td>Interface</td>
+              <td>Simple & grounded</td>
+              <td>Complex & cluttered</td>
+            </tr>
+            <tr>
+              <td>Your data</td>
+              <td>Stays on your device</td>
+              <td>Locked in a subscription</td>
+            </tr>
+            <tr>
+              <td>Reporting</td>
+              <td>Transparent & comparative</td>
+              <td>Opaque metrics</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </section>
+
+  <!-- 5. Paid workspace upsell -->
+  <section class="cta-band">
+    <div class="container">
+      <p class="eyebrow">Ready to centralize your entire health system?</p>
+      <h2 style="margin-top: 0.5rem">The Final Form System — one place for your long-term health.</h2>
+      <p style="max-width: 34rem; margin: 1rem auto 0">
+        A complete, one-time purchase health OS: habits, macros, sleep, and
+        long-term progress you actually own.
+      </p>
+      <a href="#signup" class="btn btn-primary btn-lg">
+        Explore the Final Form System on Gumroad →
+      </a>
+    </div>
+  </section>
+
+  <!-- 6. FAQ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">FAQ</p>
+        <h2>Straight answers.</h2>
+      </div>
+      <div class="faq">
+        <details class="faq-item">
+          <summary>Why are these interactive tools free?</summary>
+          <p>Because basic health insights shouldn't cost a subscription. Free tools are the on-ramp; paid, one-time systems cover deeper personalization.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How does Final Form compare to paid subscription fitness apps?</summary>
+          <p>The free tools cover roughly 80% of day-to-day tracking. Paid apps add marginal features for $15–30/month. Final Form's system is a one-time purchase you own.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Do I need paid accounts (Notion/Excel) to use the backend templates?</summary>
+          <p>No. The free tools run in your browser. The paid system is a one-time purchase that works on free tiers.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How will my email address be used?</summary>
+          <p>Only to send you free tool access and updates. We don't sell or share it — your inbox is yours too.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const form = document.getElementById("signup-form");
+    const email = document.getElementById("signup-email");
+    const success = document.getElementById("signup-success");
+    form?.addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (!email || !email.checkValidity() || !email.value.trim()) {
+        email?.focus();
+        return;
+      }
+      form.hidden = true;
+      success.hidden = false;
+    });
+  </script>
 </BaseLayout>

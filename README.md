@@ -1,59 +1,49 @@
 # getfinalform-site
 
-Marketing site for FinalForm, deployed on Cloudflare Pages at
-**getfinalform.com**.
+Marketing site for **FinalForm** — an e-commerce wellness brand — deployed on
+Cloudflare (Workers static assets) at **getfinalform.com**.
 
-A static Astro site presenting FinalForm's products — currently featuring
-**MyLittleGymBro** (the app itself lives at `mylittlegymbro.getfinalform.com`).
+The site is a brand-facing landing page: it captures emails for early access to
+FinalForm's free wellness tools. Products are intentionally not listed here;
+the e-commerce side lives separately at `supplementstacks.getfinalform.com`.
 
 ## Tech
 
-- [Astro](https://astro.build) (static output, no adapter needed)
-- Brand palette: purple `#3100e0` primary, cream surfaces — matches the
-  MyLittleGymBro design system
-- Inter typeface
+- [Astro](https://astro.build) (static output)
+- Design system: Airbnb-inspired — white canvas, Rausch `#ff385c` primary, soft
+  corners, Inter typeface
+- Deploy: Cloudflare Workers Static Assets (`wrangler.toml` → `[assets]`),
+  git-connected via Workers Builds
 
 ## Local development
 
 ```bash
 npm install
-npm run dev      # start the dev server
+npm run dev      # start the dev server (also: astro dev --background)
 npm run build    # build static site to dist/
 npm run preview  # preview the production build
 ```
 
-## Deploying to Cloudflare Pages
-
-The build output is static (`dist/`). Two options:
-
-### Option A — Cloudflare Pages dashboard
-
-1. In Cloudflare, create a **Pages** project connected to your git repo.
-2. Framework preset: **Astro**.
-3. Build command: `npm run build`
-4. Build output directory: `dist`
-5. Add a **custom domain**: `getfinalform.com`.
-
-### Option B — Wrangler CLI
-
-```bash
-npm install -D wrangler
-npx wrangler pages deploy dist          # one-off deploy
-npx wrangler pages deploy dist --project-name getfinalform-site
-```
-
-`wrangler.toml` is configured with `pages_build_output_dir = "dist"` and the
-project name.
-
 ## Pages
 
-- `/` — home
-- `/products/` — product overview
-- `/products/mylittlegymbro/` — MyLittleGymBro product page
-- `/about/` — about FinalForm
+- `/` — brand landing + email early-access signup (UI-only for now)
+- `/about/` — brand story
+- `/legal/` — privacy policy & terms
 - `/404.html` — not found
+
+## Signup
+
+The signup form is UI-only in this version: it validates the email and shows a
+success message on the client. No data is stored yet. Wire real capture (e.g., a
+Cloudflare Worker + D1) before enabling production signups.
+
+## Deploy
+
+Workers Builds (git-connected): set the **Build command** to `npm run build`
+and keep the deploy command `npx wrangler deploy`. The build outputs `dist/`,
+which `wrangler deploy` serves as static assets. Custom domains:
+`getfinalform.com` + `www.getfinalform.com`.
 
 ## TODO
 
-- Add a real 1200×630 `public/og.png` for social link cards (referenced by the
-  layout's default Open Graph image).
+- Add a real 1200×630 `public/og.png` for social link cards.
