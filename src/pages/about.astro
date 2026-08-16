@@ -1,0 +1,59 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "About — FinalForm";
+const description =
+  "FinalForm builds local-first consumer tools: free, private, and cheap to run by design.";
+---
+
+<BaseLayout title={title} description={description} path="/about/">
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">About</p>
+      <h1>Cheap software is honest software.</h1>
+      <p class="hero-sub">
+        FinalForm builds consumer tools where the cost of implementation and
+        operation is deliberately low — so the products can be free and the data
+        stays yours.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container">
+      <div class="prose">
+        <h2>The idea</h2>
+        <p>
+          Most consumer software is expensive because of how it's built: servers,
+          cloud databases, and teams to operate them. That cost shows up as
+          subscriptions, ads, or the sale of your data.
+        </p>
+        <p>
+          We take the opposite approach. Local-first products keep data on the
+          device, use free open data sources, and avoid infrastructure entirely.
+          The result is software that costs pennies a month to run — and can
+          stay free.
+        </p>
+        <h2>How AI fits in</h2>
+        <p>
+          AI is used as a proxy for implementation — LLMs write most of the code
+          under human direction. That drop in implementation cost is part of
+          what makes building and offering these products for free possible.
+        </p>
+        <h2>Principles</h2>
+        <p>
+          Local-first and local-only. Free by design, not as a loss-leader.
+          Private by default. And nothing about your health should require a
+          subscription to remember.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-strip">
+    <div class="container">
+      <h2>See what we're building.</h2>
+      <a href="/products/" class="btn btn-primary btn-lg">Browse products</a>
+    </div>
+  </section>
+</BaseLayout>

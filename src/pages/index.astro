@@ -1,0 +1,102 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "FinalForm — consumer tools that are free because they're cheap to run";
+const description =
+  "FinalForm builds local-first consumer apps: free, private, and cost-effective. Start with MyLittleGymBro, a free AI macro tracker.";
+---
+
+<BaseLayout title={title} description={description} path="/">
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">Consumer tools. Built differently.</p>
+      <h1>Free software, made possible by cheap-to-run architecture.</h1>
+      <p class="hero-sub">
+        FinalForm builds local-first products that keep your data on your device
+        and our hosting costs near zero — so the software can stay free.
+      </p>
+      <div class="hero-actions">
+        <a href="/products/mylittlegymbro/" class="btn btn-primary btn-lg">Try MyLittleGymBro</a>
+        <a href="/products/" class="btn btn-secondary btn-lg">Browse products</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Products</p>
+        <h2>Start with what's here today.</h2>
+        <p>
+          A growing set of consumer tools, each following the same principles:
+          local-first, private, and cost-effective to run.
+        </p>
+      </div>
+      <div class="grid grid-2">
+        <a href="/products/mylittlegymbro/" class="feature-tile tone-purple">
+          <p class="eyebrow" style="color: rgba(255,255,255,0.8)">Macro tracking</p>
+          <h3>MyLittleGymBro</h3>
+          <p>
+            A free, private, AI-assisted macro tracker. Scan barcodes, weigh your
+            home-cooked meals, and ask AI about anything you eat.
+          </p>
+          <p style="margin-top: 1.5rem; font-weight: 700">Open the product →</p>
+        </a>
+        <div class="feature-tile tone-slate">
+          <p class="eyebrow" style="color: rgba(255,255,255,0.8)">Coming soon</p>
+          <h3>More in the works</h3>
+          <p>
+            The same playbook applied to other everyday consumer problems —
+            free to use because it's cheap to run.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Why local-first</p>
+        <h2>Cheap to run. Private by default.</h2>
+        <p>
+          No accounts, no cloud databases, no servers to scale. Data lives on
+          your device, and infrastructure costs drop to pennies a month.
+        </p>
+      </div>
+      <div class="grid grid-3">
+        <div class="card">
+          <h3 style="font-size: 1.25rem">Private</h3>
+          <p class="muted mt-2">
+            Your data stays on your device. No ads, no tracking, no profile to
+            sell.
+          </p>
+        </div>
+        <div class="card card-cream">
+          <h3 style="font-size: 1.25rem">Free</h3>
+          <p class="muted mt-2">
+            Deliberate trade-offs keep operating cost near zero, so the products
+            can be offered free.
+          </p>
+        </div>
+        <div class="card">
+          <h3 style="font-size: 1.25rem">Yours</h3>
+          <p class="muted mt-2">
+            Export everything anytime. Nothing is locked into a proprietary
+            cloud.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-strip">
+    <div class="container">
+      <h2>Free. Because no one should have to pay to remember the food they ate.</h2>
+      <p>
+        Start tracking macros for free — no account, no subscription, no ads.
+      </p>
+      <a href="/products/mylittlegymbro/" class="btn btn-primary btn-lg">Open MyLittleGymBro</a>
+    </div>
+  </section>
+</BaseLayout>

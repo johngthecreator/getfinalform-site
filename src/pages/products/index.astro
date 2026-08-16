@@ -1,0 +1,44 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const title = "Products — FinalForm";
+const description =
+  "FinalForm's products: free, local-first consumer tools. Currently shipping MyLittleGymBro.";
+---
+
+<BaseLayout title={title} description={description} path="/products/">
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">Products</p>
+      <h1>Everything here is free — because it's cheap to run.</h1>
+      <p class="hero-sub">
+        Each product follows the same playbook: local-first architecture,
+        private by default, and no servers to bill.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container">
+      <div class="grid grid-2">
+        <a href="/products/mylittlegymbro/" class="feature-tile tone-purple">
+          <p class="eyebrow" style="color: rgba(255,255,255,0.8)">Macro tracking</p>
+          <h3>MyLittleGymBro</h3>
+          <p>
+            A free, private, AI-assisted macro tracker. Scan barcodes, weigh
+            your home-cooked meals, and ask AI about anything you eat.
+          </p>
+          <p style="margin-top: 1.5rem; font-weight: 700">Open the product →</p>
+        </a>
+        <div class="feature-tile tone-teal">
+          <p class="eyebrow" style="color: rgba(255,255,255,0.8)">Coming soon</p>
+          <h3>Next up</h3>
+          <p>
+            More everyday tools on the way, built to the same cost-effective,
+            local-first standard.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
